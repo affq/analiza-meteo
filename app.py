@@ -202,40 +202,58 @@ def licz_wojewodztwo():
 
 def write_data(dane_dzien, dane_noc):
     try:
-        B00202A = round(sum(dane_dzien['B00202A']) / len(dane_dzien['B00202A']), 1)
-        kierunek_wiatru_label.config(text=f"{B00202A}")
+        srednia = round(sum(dane_dzien['B00202A']) / len(dane_dzien['B00202A']), 1)
+        mediana = round(sorted(dane_dzien['B00202A'])[len(dane_dzien['B00202A']) // 2], 1)
+        kierunek_wiatru_label.config(text=f"{srednia}°")
+        kierunek_wiatru_label_mediana.config(text=f"{mediana}°")
     except ZeroDivisionError:
         kierunek_wiatru_label.config(text=f"brak danych")
+        kierunek_wiatru_label_mediana.config(text=f"brak danych")
     
     try:
-        B00202A = round(sum(dane_noc['B00202A']) / len(dane_noc['B00202A']), 1)
-        kierunek_wiatru_label_night.config(text=f"{B00202A}")
+        srednia = round(sum(dane_noc['B00202A']) / len(dane_noc['B00202A']), 1)
+        mediana = round(sorted(dane_noc['B00202A'])[len(dane_noc['B00202A']) // 2], 1)
+        kierunek_wiatru_label_night.config(text=f"{srednia}°")
+        kierunek_wiatru_label_night_mediana.config(text=f"{mediana}°")
     except ZeroDivisionError:
         kierunek_wiatru_label_night.config(text=f"brak danych")
+        kierunek_wiatru_label_night_mediana.config(text=f"brak danych")
 
     try:
-        B00300S = round(sum(dane_dzien['B00300S']) / len(dane_dzien['B00300S']), 1)
-        t_powietrza_label.config(text=f"{B00300S} °C")
+        srednia = round(sum(dane_dzien['B00300S']) / len(dane_dzien['B00300S']), 1)
+        mediana = round(sorted(dane_dzien['B00300S'])[len(dane_dzien['B00300S']) // 2], 1)
+        t_powietrza_label.config(text=f"{srednia} °C")
+        t_powietrza_label_mediana.config(text=f"{mediana} °C")
     except ZeroDivisionError:
         t_powietrza_label.config(text=f"brak danych")
+        t_powietrza_label_mediana.config(text=f"brak danych")
     
     try:
-        B00300S = round(sum(dane_noc['B00300S']) / len(dane_noc['B00300S']), 1)
-        t_powietrza_label_night.config(text=f"{B00300S} °C")
+        srednia = round(sum(dane_noc['B00300S']) / len(dane_noc['B00300S']), 1)
+        mediana = round(sorted(dane_noc['B00300S'])[len(dane_noc['B00300S']) // 2], 1)
+        t_powietrza_label_night.config(text=f"{srednia} °C")
+        t_powietrza_label_night_mediana.config(text=f"{mediana} °C")
     except ZeroDivisionError:
         t_powietrza_label_night.config(text=f"brak danych")
+        t_powietrza_label_night_mediana.config(text=f"brak danych")
 
     try:
-        B00305A = round(sum(dane_dzien['B00305A']) / len(dane_dzien['B00305A']), 1)
-        t_gruntu_label.config(text=f"{B00305A} °C")
+        srednia = round(sum(dane_dzien['B00305A']) / len(dane_dzien['B00305A']), 1)
+        mediana = round(sorted(dane_dzien['B00305A'])[len(dane_dzien['B00305A']) // 2], 1)
+        t_gruntu_label.config(text=f"{srednia} °C")
+        t_gruntu_label_mediana.config(text=f"{mediana} °C")
     except ZeroDivisionError:
         t_gruntu_label.config(text=f"brak danych")
+        t_gruntu_label_mediana.config(text=f"brak danych")
     
     try:
-        B00305A = round(sum(dane_noc['B00305A']) / len(dane_noc['B00305A']), 1)
-        t_gruntu_label_night.config(text=f"{B00305A} °C")
+        srednia = round(sum(dane_noc['B00305A']) / len(dane_noc['B00305A']), 1)
+        mediana = round(sorted(dane_noc['B00305A'])[len(dane_noc['B00305A']) // 2], 1)
+        t_gruntu_label_night.config(text=f"{srednia} °C")
+        t_gruntu_label_mediana_night.config(text=f"{mediana} °C")
     except ZeroDivisionError:
         t_gruntu_label_night.config(text=f"brak danych")
+        t_gruntu_label_mediana_night.config(text=f"brak danych")
 
     if len(dane_dzien['B00604S']) > 0:
         B00604S = round(sum(dane_dzien['B00604S']) / len(dane_dzien['B00604S']), 1)
@@ -247,52 +265,76 @@ def write_data(dane_dzien, dane_noc):
         opad_dobowy_label.config(text=f"brak danych")
     
     try:
-        B00606S = round(sum(dane_dzien['B00606S']) / len(dane_dzien['B00606S']), 1)
-        opad_godzinowy_label.config(text=f"{B00606S} mm")
+        srednia = round(sum(dane_dzien['B00606S']) / len(dane_dzien['B00606S']), 1)
+        mediana = round(sorted(dane_dzien['B00606S'])[len(dane_dzien['B00606S']) // 2], 1)
+        opad_godzinowy_label.config(text=f"{srednia} mm")
+        opad_godzinowy_label_mediana.config(text=f"{mediana} mm")
     except ZeroDivisionError:
         opad_godzinowy_label.config(text=f"brak danych")
+        opad_godzinowy_label_mediana.config(text=f"brak danych")
     
     try:
-        B00606S = round(sum(dane_noc['B00606S']) / len(dane_noc['B00606S']), 1)
-        opad_godzinowy_label_night.config(text=f"{B00606S} mm")
+        srednia = round(sum(dane_noc['B00606S']) / len(dane_noc['B00606S']), 1)
+        mediana = round(sorted(dane_noc['B00606S'])[len(dane_noc['B00606S']) // 2], 1)
+        opad_godzinowy_label_night.config(text=f"{srednia} mm")
+        opad_godzinowy_label_night_mediana.config(text=f"{mediana} mm")
     except ZeroDivisionError:
         opad_godzinowy_label_night.config(text=f"brak danych")
+        opad_godzinowy_label_night_mediana.config(text=f"brak danych")
     
     try:
-        B00608S = round(sum(dane_dzien['B00608S']) / len(dane_dzien['B00608S']), 1)
-        opad_dziesieciominutowy_label.config(text=f"{B00608S} mm")
+        srednia = round(sum(dane_dzien['B00608S']) / len(dane_dzien['B00608S']), 1)
+        mediana = round(sorted(dane_dzien['B00608S'])[len(dane_dzien['B00608S']) // 2], 1)
+        opad_dziesieciominutowy_label.config(text=f"{srednia} mm")
+        opad_dziesieciominutowy_label_mediana.config(text=f"{mediana} mm")
     except ZeroDivisionError:
         opad_dziesieciominutowy_label.config(text=f"brak danych")
+        opad_dziesieciominutowy_label_mediana.config(text=f"brak danych")
     
     try:
-        B00608S = round(sum(dane_noc['B00608S']) / len(dane_noc['B00608S']), 1)
-        opad_dziesieciominutowy_label_night.config(text=f"{B00608S} mm")
+        srednia = round(sum(dane_noc['B00608S']) / len(dane_noc['B00608S']), 1)
+        mediana = round(sorted(dane_noc['B00608S'])[len(dane_noc['B00608S']) // 2], 1)
+        opad_dziesieciominutowy_label_night.config(text=f"{srednia} mm")
+        opad_dziesieciominutowy_label_night_mediana.config(text=f"{mediana} mm")
     except ZeroDivisionError:
         opad_dziesieciominutowy_label_night.config(text=f"brak danych")
+        opad_dziesieciominutowy_label_night_mediana.config(text=f"brak danych")
 
     try:
-        B00702A = round(sum(dane_dzien['B00702A']) / len(dane_dzien['B00702A']), 1)
-        predkosc_wiatru_label.config(text=f"{B00702A} m/s")
+        srednia = round(sum(dane_dzien['B00702A']) / len(dane_dzien['B00702A']), 1)
+        mediana = round(sorted(dane_dzien['B00702A'])[len(dane_dzien['B00702A']) // 2], 1)
+        predkosc_wiatru_label.config(text=f"{srednia} m/s")
+        predkosc_wiatru_label_mediana.config(text=f"{mediana} m/s")
     except ZeroDivisionError:
         predkosc_wiatru_label.config(text=f"brak danych")
+        predkosc_wiatru_label_mediana.config(text=f"brak danych")
     
     try:
-        B00702A = round(sum(dane_noc['B00702A']) / len(dane_noc['B00702A']), 1)
-        predkosc_wiatru_label_night.config(text=f"{B00702A} m/s")
+        srednia = round(sum(dane_noc['B00702A']) / len(dane_noc['B00702A']), 1)
+        mediana = round(sorted(dane_noc['B00702A'])[len(dane_noc['B00702A']) // 2], 1)
+        predkosc_wiatru_label_night.config(text=f"{srednia} m/s")
+        predkosc_wiatru_label_night_mediana.config(text=f"{mediana} m/s")
     except ZeroDivisionError:
         predkosc_wiatru_label_night.config(text=f"brak danych")
+        predkosc_wiatru_label_night_mediana.config(text=f"brak danych")
     
     try:
-        B00703A = round(sum(dane_dzien['B00703A']) / len(dane_dzien['B00703A']), 1)
-        maks_predkosc_wiatru_label.config(text=f"{B00703A} m/s")
+        srednia = round(sum(dane_dzien['B00703A']) / len(dane_dzien['B00703A']), 1)
+        mediana = round(sorted(dane_dzien['B00703A'])[len(dane_dzien['B00703A']) // 2], 1)
+        maks_predkosc_wiatru_label.config(text=f"{srednia} m/s")
+        maks_predkosc_wiatru_label_mediana.config(text=f"{mediana} m/s")
     except ZeroDivisionError:
         maks_predkosc_wiatru_label.config(text=f"brak danych")
+        maks_predkosc_wiatru_label_mediana.config(text=f"brak danych")
 
     try: 
-        B00703A = round(sum(dane_noc['B00703A']) / len(dane_noc['B00703A']), 1)
-        maks_predkosc_wiatru_label_night.config(text=f"{B00703A} m/s")
+        srednia = round(sum(dane_noc['B00703A']) / len(dane_noc['B00703A']), 1)
+        mediana = round(sorted(dane_noc['B00703A'])[len(dane_noc['B00703A']) // 2], 1)
+        maks_predkosc_wiatru_label_night.config(text=f"{srednia} m/s")
+        maks_predkosc_wiatru_label_night_mediana.config(text=f"{mediana} m/s")
     except ZeroDivisionError:
         maks_predkosc_wiatru_label_night.config(text=f"brak danych")
+        maks_predkosc_wiatru_label_night_mediana.config(text=f"brak danych")
     
     if len(dane_dzien['B00714A']) > 0:
         B00714A = round(sum(dane_dzien['B00714A']) / len(dane_dzien['B00714A']), 1)
@@ -304,19 +346,26 @@ def write_data(dane_dzien, dane_noc):
         najwiekszy_poryw_label.config(text=f"brak danych")
 
     try:
-        B00802A = round(sum(dane_dzien['B00802A']) / len(dane_dzien['B00802A']), 1)
-        wilgotnosc_wzgl_powietrza_label.config(text=f"{B00802A} %")
+        srednia = round(sum(dane_dzien['B00802A']) / len(dane_dzien['B00802A']), 1)
+        mediana = round(sorted(dane_dzien['B00802A'])[len(dane_dzien['B00802A']) // 2], 1)
+        wilgotnosc_wzgl_powietrza_label.config(text=f"{srednia} %")
+        wilgotnosc_wzgl_powietrza_label_mediana.config(text=f"{mediana} %")
     except ZeroDivisionError:
         wilgotnosc_wzgl_powietrza_label.config(text=f"brak danych")
+        wilgotnosc_wzgl_powietrza_label_mediana.config(text=f"brak danych")
     
     try:
-        B00802A = round(sum(dane_noc['B00802A']) / len(dane_noc['B00802A']), 1)
-        wilgotnosc_wzgl_powietrza_label_night.config(text=f"{B00802A} %")
+        srednia = round(sum(dane_noc['B00802A']) / len(dane_noc['B00802A']), 1)
+        mediana = round(sorted(dane_noc['B00802A'])[len(dane_noc['B00802A']) // 2], 1)
+        wilgotnosc_wzgl_powietrza_label_night.config(text=f"{srednia} %")
+        wilgotnosc_wzgl_powietrza_label_night_mediana.config(text=f"{mediana} %")
     except ZeroDivisionError:
         wilgotnosc_wzgl_powietrza_label_night.config(text=f"brak danych")
+        wilgotnosc_wzgl_powietrza_label_night_mediana.config(text=f"brak danych")
 
 
 root = tk.Tk()
+root.geometry("1200x1000")
 root.title("analiza danych meteo")
 
 options = tk.LabelFrame(root, text="Opcje")
@@ -340,7 +389,7 @@ moon_label = tk.Label(days_night_imgs, image=moon_img)
 moon_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 empty_label = tk.Label(days_night_imgs, text=" ")
-empty_label.pack(side=tk.LEFT, pady=10, padx=20, expand=True)
+empty_label.pack(side=tk.LEFT, pady=10, padx=180, expand=True)
 
 sun_label = tk.Label(days_night_imgs, image=sun_img)
 sun_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
@@ -383,20 +432,56 @@ licz_button.configure(command=licz_powiat)
 t_powietrza_frame = tk.LabelFrame(results, text="Temperatura powietrza")
 t_powietrza_frame.pack(fill=tk.X)
 
-t_powietrza_label_night = tk.Label(t_powietrza_frame, text="")
+t_powietrza_srednie = tk.Frame(t_powietrza_frame)
+t_powietrza_srednie.pack(fill=tk.X)
+
+t_powietrza_label_night = tk.Label(t_powietrza_srednie, text="")
 t_powietrza_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-t_powietrza_label = tk.Label(t_powietrza_frame, text="")
+t_powietrza_srednia_sep = tk.Label(t_powietrza_srednie, text="śr.")
+t_powietrza_srednia_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_powietrza_label = tk.Label(t_powietrza_srednie, text="")
 t_powietrza_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_powietrza_mediany = tk.Frame(t_powietrza_frame)
+t_powietrza_mediany.pack(fill=tk.X)
+
+t_powietrza_label_night_mediana = tk.Label(t_powietrza_mediany, text="")
+t_powietrza_label_night_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_powietrza_mediana_sep = tk.Label(t_powietrza_mediany, text="med.")
+t_powietrza_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_powietrza_label_mediana = tk.Label(t_powietrza_mediany, text="")
+t_powietrza_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 t_gruntu_frame = tk.LabelFrame(results, text="Temperatura gruntu")
 t_gruntu_frame.pack(fill=tk.X)
 
-t_gruntu_label_night = tk.Label(t_gruntu_frame, text="")
+t_gruntu_srednie = tk.Frame(t_gruntu_frame)
+t_gruntu_srednie.pack(fill=tk.X)
+
+t_gruntu_label_night = tk.Label(t_gruntu_srednie, text="")
 t_gruntu_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-t_gruntu_label = tk.Label(t_gruntu_frame, text="")
+t_gruntu_srednie_sep = tk.Label(t_gruntu_srednie, text="śr.")
+t_gruntu_srednie_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_gruntu_label = tk.Label(t_gruntu_srednie, text="")
 t_gruntu_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_gruntu_mediany = tk.Frame(t_gruntu_frame)
+t_gruntu_mediany.pack(fill=tk.X)
+
+t_gruntu_label_mediana_night = tk.Label(t_gruntu_mediany, text="")
+t_gruntu_label_mediana_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_gruntu_mediana_sep = tk.Label(t_gruntu_mediany, text="med.")
+t_gruntu_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+t_gruntu_label_mediana = tk.Label(t_gruntu_mediany, text="")
+t_gruntu_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 opad_dobowy_frame = tk.LabelFrame(results, text="Opad dobowy")
 opad_dobowy_frame.pack(fill=tk.X)
@@ -407,47 +492,137 @@ opad_dobowy_label.pack(pady=10, padx=10)
 opad_godzinowy_frame = tk.LabelFrame(results, text="Opad godzinowy")
 opad_godzinowy_frame.pack(fill=tk.X)
 
-opad_godzinowy_label_night = tk.Label(opad_godzinowy_frame, text="")
+opad_godzinowy_srednie = tk.Frame(opad_godzinowy_frame)
+opad_godzinowy_srednie.pack(fill=tk.X)
+
+opad_godzinowy_label_night = tk.Label(opad_godzinowy_srednie, text="")
 opad_godzinowy_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-opad_godzinowy_label = tk.Label(opad_godzinowy_frame, text="")
+opad_godzinowy_srednie_sep = tk.Label(opad_godzinowy_srednie, text="śr.")
+opad_godzinowy_srednie_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_godzinowy_label = tk.Label(opad_godzinowy_srednie, text="")
 opad_godzinowy_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_godzinowy_mediany = tk.Frame(opad_godzinowy_frame)
+opad_godzinowy_mediany.pack(fill=tk.X)
+
+opad_godzinowy_label_night_mediana = tk.Label(opad_godzinowy_mediany, text="")
+opad_godzinowy_label_night_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_godzinowy_mediana_sep = tk.Label(opad_godzinowy_mediany, text="med.")
+opad_godzinowy_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_godzinowy_label_mediana = tk.Label(opad_godzinowy_mediany, text="")
+opad_godzinowy_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 opad_dziesieciominutowy_frame = tk.LabelFrame(results, text="Opad dziesięciominutowy")
 opad_dziesieciominutowy_frame.pack(fill=tk.X)
 
-opad_dziesieciominutowy_label_night = tk.Label(opad_dziesieciominutowy_frame, text="")
+opad_dziesieciominutowy_srednie = tk.Frame(opad_dziesieciominutowy_frame)
+opad_dziesieciominutowy_srednie.pack(fill=tk.X)
+
+opad_dziesieciominutowy_label_night = tk.Label(opad_dziesieciominutowy_srednie, text="")
 opad_dziesieciominutowy_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-opad_dziesieciominutowy_label = tk.Label(opad_dziesieciominutowy_frame, text="")
+opad_dziesieciominutowy_srednie_sep = tk.Label(opad_dziesieciominutowy_srednie, text="śr.")
+opad_dziesieciominutowy_srednie_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_dziesieciominutowy_label = tk.Label(opad_dziesieciominutowy_srednie, text="")
 opad_dziesieciominutowy_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_dziesieciominutowy_mediany = tk.Frame(opad_dziesieciominutowy_frame)
+opad_dziesieciominutowy_mediany.pack(fill=tk.X)
+
+opad_dziesieciominutowy_label_night_mediana = tk.Label(opad_dziesieciominutowy_mediany, text="")
+opad_dziesieciominutowy_label_night_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_dziesieciominutowy_mediana_sep = tk.Label(opad_dziesieciominutowy_mediany, text="med.")
+opad_dziesieciominutowy_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+opad_dziesieciominutowy_label_mediana = tk.Label(opad_dziesieciominutowy_mediany, text="")
+opad_dziesieciominutowy_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 predkosc_wiatru_frame = tk.LabelFrame(results, text="Prędkość wiatru")
 predkosc_wiatru_frame.pack(fill=tk.X)
 
-predkosc_wiatru_label_night = tk.Label(predkosc_wiatru_frame, text="")
+predkosc_wiatru_srednia = tk.Frame(predkosc_wiatru_frame)
+predkosc_wiatru_srednia.pack(fill=tk.X)
+
+predkosc_wiatru_label_night = tk.Label(predkosc_wiatru_srednia, text="")
 predkosc_wiatru_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-predkosc_wiatru_label = tk.Label(predkosc_wiatru_frame, text="")
+predkosc_wiatru_srednia_sep = tk.Label(predkosc_wiatru_srednia, text="śr.")
+predkosc_wiatru_srednia_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+predkosc_wiatru_label = tk.Label(predkosc_wiatru_srednia, text="")
 predkosc_wiatru_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+predkosc_wiatru_mediana = tk.Frame(predkosc_wiatru_frame)
+predkosc_wiatru_mediana.pack(fill=tk.X)
+
+predkosc_wiatru_label_night_mediana = tk.Label(predkosc_wiatru_mediana, text="")
+predkosc_wiatru_label_night_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+predkosc_wiatru_mediana_sep = tk.Label(predkosc_wiatru_mediana, text="med.")
+predkosc_wiatru_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+predkosc_wiatru_label_mediana = tk.Label(predkosc_wiatru_mediana, text="")
+predkosc_wiatru_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 kierunek_wiatru_frame = tk.LabelFrame(results, text="Kierunek wiatru")
 kierunek_wiatru_frame.pack(fill=tk.X)
 
-kierunek_wiatru_label_night = tk.Label(kierunek_wiatru_frame, text="")
+kierunek_srednia_frame = tk.Frame(kierunek_wiatru_frame)
+kierunek_srednia_frame.pack(fill=tk.X)
+
+kierunek_wiatru_label_night = tk.Label(kierunek_srednia_frame, text="")
 kierunek_wiatru_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-kierunek_wiatru_label = tk.Label(kierunek_wiatru_frame, text="")
+kierunek_srednia_sep = tk.Label(kierunek_srednia_frame, text="śr.")
+kierunek_srednia_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+kierunek_wiatru_label = tk.Label(kierunek_srednia_frame, text="")
 kierunek_wiatru_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+kierunek_mediana_frame = tk.Frame(kierunek_wiatru_frame)
+kierunek_mediana_frame.pack(fill=tk.X)
+
+kierunek_wiatru_label_night_mediana = tk.Label(kierunek_mediana_frame, text="")
+kierunek_wiatru_label_night_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+kierunek_mediana_sep = tk.Label(kierunek_mediana_frame, text="med.")
+kierunek_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+kierunek_wiatru_label_mediana = tk.Label(kierunek_mediana_frame, text="")
+kierunek_wiatru_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 maks_predkosc_wiatru_frame = tk.LabelFrame(results, text="Maksymalna prędkość wiatru")
 maks_predkosc_wiatru_frame.pack(fill=tk.X)
 
-maks_predkosc_wiatru_label_night = tk.Label(maks_predkosc_wiatru_frame, text="")
+maks_predkosc_wiatru_srednia = tk.Frame(maks_predkosc_wiatru_frame)
+maks_predkosc_wiatru_srednia.pack(fill=tk.X)
+
+maks_predkosc_wiatru_label_night = tk.Label(maks_predkosc_wiatru_srednia, text="")
 maks_predkosc_wiatru_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-maks_predkosc_wiatru_label = tk.Label(maks_predkosc_wiatru_frame, text="")
+maks_predkosc_wiatru_srednia_sep = tk.Label(maks_predkosc_wiatru_srednia, text="śr.")
+maks_predkosc_wiatru_srednia_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+maks_predkosc_wiatru_label = tk.Label(maks_predkosc_wiatru_srednia, text="")
 maks_predkosc_wiatru_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+maks_predkosc_wiatru_mediana = tk.Frame(maks_predkosc_wiatru_frame)
+maks_predkosc_wiatru_mediana.pack(fill=tk.X)
+
+maks_predkosc_wiatru_label_night_mediana = tk.Label(maks_predkosc_wiatru_mediana, text="")
+maks_predkosc_wiatru_label_night_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+maks_predkosc_wiatru_mediana_sep = tk.Label(maks_predkosc_wiatru_mediana, text="med.")
+maks_predkosc_wiatru_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+maks_predkosc_wiatru_label_mediana = tk.Label(maks_predkosc_wiatru_mediana, text="")
+maks_predkosc_wiatru_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 najwiekszy_poryw_frame = tk.LabelFrame(results, text="Największy poryw")
 najwiekszy_poryw_frame.pack(fill=tk.X)
@@ -458,10 +633,28 @@ najwiekszy_poryw_label.pack(pady=10, padx=10)
 wilgotnosc_wzgl_powietrza_frame = tk.LabelFrame(results, text="Wilgotność wzgl. powietrza")
 wilgotnosc_wzgl_powietrza_frame.pack(fill=tk.X)
 
-wilgotnosc_wzgl_powietrza_label_night = tk.Label(wilgotnosc_wzgl_powietrza_frame, text="")
+wilgotnosc_srednia_frame = tk.Frame(wilgotnosc_wzgl_powietrza_frame)
+wilgotnosc_srednia_frame.pack(fill=tk.X)
+
+wilgotnosc_wzgl_powietrza_label_night = tk.Label(wilgotnosc_srednia_frame, text="")
 wilgotnosc_wzgl_powietrza_label_night.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
-wilgotnosc_wzgl_powietrza_label = tk.Label(wilgotnosc_wzgl_powietrza_frame, text="")
+wilgotnosc_wzgl_srednia_sep = tk.Label(wilgotnosc_srednia_frame, text="śr.")
+wilgotnosc_wzgl_srednia_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+wilgotnosc_wzgl_powietrza_label = tk.Label(wilgotnosc_srednia_frame, text="")
 wilgotnosc_wzgl_powietrza_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+wilgotnosc_mediany_frame = tk.Frame(wilgotnosc_wzgl_powietrza_frame)
+wilgotnosc_mediany_frame.pack(fill=tk.X)
+
+wilgotnosc_wzgl_powietrza_label_night_mediana = tk.Label(wilgotnosc_mediany_frame, text="")
+wilgotnosc_wzgl_powietrza_label_night_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+wilgotnosc_wzgl_mediana_sep = tk.Label(wilgotnosc_mediany_frame, text="med.")
+wilgotnosc_wzgl_mediana_sep.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
+
+wilgotnosc_wzgl_powietrza_label_mediana = tk.Label(wilgotnosc_mediany_frame, text="")
+wilgotnosc_wzgl_powietrza_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 root.mainloop()
