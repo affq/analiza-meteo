@@ -365,11 +365,11 @@ def write_data(dane_dzien, dane_noc):
 
 
 root = tk.Tk()
-root.geometry("1200x1000")
+root.geometry("700x1000")
 root.title("analiza danych meteo")
 
 options = tk.LabelFrame(root, text="Opcje")
-options.pack(side=tk.LEFT, expand=True, fill=tk.BOTH)
+options.pack(side=tk.LEFT, fill=tk.BOTH)
 
 results = tk.LabelFrame(root, text="Wyniki")
 results.pack(side=tk.LEFT, expand=True, fill=tk.BOTH)
@@ -389,7 +389,7 @@ moon_label = tk.Label(days_night_imgs, image=moon_img)
 moon_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 empty_label = tk.Label(days_night_imgs, text=" ")
-empty_label.pack(side=tk.LEFT, pady=10, padx=180, expand=True)
+empty_label.pack(side=tk.LEFT, pady=10, padx=100, expand=True)
 
 sun_label = tk.Label(days_night_imgs, image=sun_img)
 sun_label.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
@@ -430,7 +430,7 @@ licz_button.pack(pady=10)
 licz_button.configure(command=licz_powiat)
 
 t_powietrza_frame = tk.LabelFrame(results, text="Temperatura powietrza")
-t_powietrza_frame.pack(fill=tk.X)
+t_powietrza_frame.pack(fill=tk.X, padx=10)
 
 t_powietrza_srednie = tk.Frame(t_powietrza_frame)
 t_powietrza_srednie.pack(fill=tk.X)
@@ -457,7 +457,7 @@ t_powietrza_label_mediana = tk.Label(t_powietrza_mediany, text="")
 t_powietrza_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 t_gruntu_frame = tk.LabelFrame(results, text="Temperatura gruntu")
-t_gruntu_frame.pack(fill=tk.X)
+t_gruntu_frame.pack(fill=tk.X, padx=10)
 
 t_gruntu_srednie = tk.Frame(t_gruntu_frame)
 t_gruntu_srednie.pack(fill=tk.X)
@@ -484,13 +484,13 @@ t_gruntu_label_mediana = tk.Label(t_gruntu_mediany, text="")
 t_gruntu_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 opad_dobowy_frame = tk.LabelFrame(results, text="Opad dobowy")
-opad_dobowy_frame.pack(fill=tk.X)
+opad_dobowy_frame.pack(fill=tk.X, padx=10)
 
 opad_dobowy_label = tk.Label(opad_dobowy_frame, text="")
 opad_dobowy_label.pack(pady=10, padx=10)
 
 opad_godzinowy_frame = tk.LabelFrame(results, text="Opad godzinowy")
-opad_godzinowy_frame.pack(fill=tk.X)
+opad_godzinowy_frame.pack(fill=tk.X, padx=10)
 
 opad_godzinowy_srednie = tk.Frame(opad_godzinowy_frame)
 opad_godzinowy_srednie.pack(fill=tk.X)
@@ -517,7 +517,7 @@ opad_godzinowy_label_mediana = tk.Label(opad_godzinowy_mediany, text="")
 opad_godzinowy_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 opad_dziesieciominutowy_frame = tk.LabelFrame(results, text="Opad dziesięciominutowy")
-opad_dziesieciominutowy_frame.pack(fill=tk.X)
+opad_dziesieciominutowy_frame.pack(fill=tk.X, padx=10)
 
 opad_dziesieciominutowy_srednie = tk.Frame(opad_dziesieciominutowy_frame)
 opad_dziesieciominutowy_srednie.pack(fill=tk.X)
@@ -544,7 +544,7 @@ opad_dziesieciominutowy_label_mediana = tk.Label(opad_dziesieciominutowy_mediany
 opad_dziesieciominutowy_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 predkosc_wiatru_frame = tk.LabelFrame(results, text="Prędkość wiatru")
-predkosc_wiatru_frame.pack(fill=tk.X)
+predkosc_wiatru_frame.pack(fill=tk.X, padx=10)
 
 predkosc_wiatru_srednia = tk.Frame(predkosc_wiatru_frame)
 predkosc_wiatru_srednia.pack(fill=tk.X)
@@ -571,7 +571,7 @@ predkosc_wiatru_label_mediana = tk.Label(predkosc_wiatru_mediana, text="")
 predkosc_wiatru_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 kierunek_wiatru_frame = tk.LabelFrame(results, text="Kierunek wiatru")
-kierunek_wiatru_frame.pack(fill=tk.X)
+kierunek_wiatru_frame.pack(fill=tk.X, padx=10)
 
 kierunek_srednia_frame = tk.Frame(kierunek_wiatru_frame)
 kierunek_srednia_frame.pack(fill=tk.X)
@@ -598,7 +598,7 @@ kierunek_wiatru_label_mediana = tk.Label(kierunek_mediana_frame, text="")
 kierunek_wiatru_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 maks_predkosc_wiatru_frame = tk.LabelFrame(results, text="Maksymalna prędkość wiatru")
-maks_predkosc_wiatru_frame.pack(fill=tk.X)
+maks_predkosc_wiatru_frame.pack(fill=tk.X, padx=10)
 
 maks_predkosc_wiatru_srednia = tk.Frame(maks_predkosc_wiatru_frame)
 maks_predkosc_wiatru_srednia.pack(fill=tk.X)
@@ -625,13 +625,13 @@ maks_predkosc_wiatru_label_mediana = tk.Label(maks_predkosc_wiatru_mediana, text
 maks_predkosc_wiatru_label_mediana.pack(side=tk.LEFT, pady=10, padx=10, expand=True)
 
 najwiekszy_poryw_frame = tk.LabelFrame(results, text="Największy poryw")
-najwiekszy_poryw_frame.pack(fill=tk.X)
+najwiekszy_poryw_frame.pack(fill=tk.X, padx=10)
 
 najwiekszy_poryw_label = tk.Label(najwiekszy_poryw_frame, text="")
 najwiekszy_poryw_label.pack(pady=10, padx=10)
 
 wilgotnosc_wzgl_powietrza_frame = tk.LabelFrame(results, text="Wilgotność wzgl. powietrza")
-wilgotnosc_wzgl_powietrza_frame.pack(fill=tk.X)
+wilgotnosc_wzgl_powietrza_frame.pack(fill=tk.X, padx=10)
 
 wilgotnosc_srednia_frame = tk.Frame(wilgotnosc_wzgl_powietrza_frame)
 wilgotnosc_srednia_frame.pack(fill=tk.X)
