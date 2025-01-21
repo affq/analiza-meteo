@@ -1,0 +1,42 @@
+.marker-icon{
+    border-radius: 50%;
+    text-align:center;
+    line-height: var(--r);
+    font-weight: bold;
+    border: 1px solid black;
+    width: var(--r) !important;
+    height: var(--r) !important;
+    display: inline-block;
+}
+
+.leaflet-control-layers-list {
+    padding: 10px;
+}
+
+.leaflet-control-layers label {
+    font-weight: bold;
+    color: #333;
+}
+
+.leaflet-control-layers input[type="radio"],
+.leaflet-control-layers input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.leaflet-tooltip{
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-size: 1rem;
+    color:black;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.leaflet-tooltip-bottom:before, .leaflet-tooltip-top:before{
+    display: none;
+}
+
+path{
+    outline: none;
+}
