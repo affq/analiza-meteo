@@ -7,7 +7,6 @@ from redis import Redis
 from redis.commands.timeseries import TimeSeries
 from datetime import datetime, timedelta
 from PIL import Image, ImageTk
-from tkintermapview import TkinterMapView
 import geopandas as gpd
 from shapely.geometry import Polygon, MultiPolygon
 
@@ -355,31 +354,39 @@ import os
 import folium
 from tkinterweb import HtmlFrame
 
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
+from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtWebEngineCore import QWebEngineSettings
+
 def wybierz_z_mapy():
-    map = tk.Toplevel()
-    map.geometry("800x600")
+    app = QApplication([])
+    window = QMainWindow()
+    window.setWindowTitle("Mapa")
 
     m = folium.Map(location=[52.0237065, 19.3787379], zoom_start=6)
     m.save("map.html")
-    m_path = os.path.abspath("map.html")
 
-    html_frame = HtmlFrame(map)
-    html_frame.load_url(f"file:///{m_path}")
-    html_frame.pack(fill="both", expand=True)
+    web_view = QWebEngineView()
+    web_view.load(f"file:///C:/Users/adria/Desktop/pag-2-blok-2/map.html")
 
-    # Dodanie widżetu mapy
-    # map_widget = TkinterMapView(map, width=800, height=600, corner_radius=0)
-    # map_widget.set_tile_server("")
-    # map_widget.pack(fill="both", expand=True)
+    settings = web_view.settings()
+    settings.setAttribute(QWebEngineSettings.LocalStorageEnabled, True)
 
-    # # Ustawienie początkowego widoku mapy (szerokość i długość geograficzna + zoom)
-    # map_widget.set_position(52.0237065, 19.3787379) 
-    # map_widget.set_zoom(6)
-    # map_widget.bind("<Button-1>", lambda event: on_map_click(map_widget, event))
+    layout = QVBoxLayout()
+    layout.addWidget(web_view)
 
-    # custom_marker = Image.open("img/pin.png")
-    # custom_marker = custom_marker.resize((30, 30))
-    # custom_marker = ImageTk.PhotoImage(custom_marker)
+    central_widget = QWidget()
+    central_widget.setLayout(layout)
+    window.setCentralWidget(central_widget)
+
+    window.resize(800, 600)
+
+    # Pokaż okno
+    window.show()
+
+    # Uruchom aplikację
+    app.exec()
 
     # client, db = polacz_z_mongo()
     # stacje = db.stations.find()
@@ -402,8 +409,6 @@ def wybierz_z_mapy():
     #         for poly in polygon.geoms:
     #             coordinates = [(lat, lon) for lon, lat in poly.exterior.coords]
     #             polygon = map_widget.set_path(coordinates)
-    
-    map.mainloop()
 
 
 root = tk.Tk()
