@@ -63,7 +63,7 @@ def licz_mediana(dane):
         mediana = round(sorted(dane)[len(dane) // 2], 1)
     return mediana
 
-app = Flask(__name__, template_folder="/home/ad/pag-2-blok-2/web/templates", static_url_path='', static_folder="/home/ad/pag-2-blok-2/web/static")
+app = Flask(__name__, template_folder=r"C:\Users\adria\Desktop\STUDIA_FOLDERY\pag-2-blok-2\web\templates", static_url_path='', static_folder=r"C:\Users\adria\Desktop\STUDIA_FOLDERY\pag-2-blok-2\web\static")
 socketio = SocketIO(app)
 
 @app.route('/')
