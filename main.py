@@ -15,7 +15,7 @@ from flask_socketio import SocketIO
 import threading
 
 def polacz_z_redis():
-    r = Redis(host='localhost', port=6380, db=0)
+    r = Redis(host='localhost', port=6379, db=0)
     ts = TimeSeries(r)
     return ts
 
@@ -54,16 +54,20 @@ def licz_srednia(dane):
         srednia = round(sum(dane) / len(dane), 1)
         return srednia
     except ZeroDivisionError:
-        return "brak danych"
+        return "-"
 
 def licz_mediana(dane):
+    if len(dane) == 1:
+        return dane[0]
+    if len(dane) == 0:
+        return "-"
     if len(dane) % 2 == 0:
         mediana = round((sorted(dane)[len(dane) // 2] + sorted(dane)[len(dane) // 2 - 1]) / 2, 1)
     else:
         mediana = round(sorted(dane)[len(dane) // 2], 1)
     return mediana
 
-app = Flask(__name__, template_folder=r"C:\\Users\\adria\\Desktop\\pag-2-blok-2\\web\\templates", static_url_path='', static_folder=r"C:\\Users\\adria\\Desktop\\pag-2-blok-2\\web\\static")
+app = Flask(__name__, template_folder=r"/home/adrian/analiza-meteo/web/templates", static_url_path='', static_folder=r"/home/adrian/analiza-meteo/web/static")
 socketio = SocketIO(app)
 
 @app.route('/')
@@ -153,7 +157,7 @@ def write_data(dane_dzien, dane_noc):
         B00604S = dane_noc['B00604S'][0]
         opad_dobowy_label.config(text=f"{B00604S} mm")
     else:
-        opad_dobowy_label.config(text=f"brak danych")
+        opad_dobowy_label.config(text=f"- mm")
     
     try:
         srednia = licz_srednia(dane_dzien['B00606S'])
@@ -242,7 +246,7 @@ def write_data(dane_dzien, dane_noc):
         B00714A = dane_noc['B00714A'][0]
         najwiekszy_poryw_label.config(text=f"{B00714A} m/s")
     else:
-        najwiekszy_poryw_label.config(text=f"brak danych")
+        najwiekszy_poryw_label.config(text=f"- m/s")
 
     try:
         srednia = licz_srednia(dane_dzien['B00802A'])
